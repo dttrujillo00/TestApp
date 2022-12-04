@@ -1,16 +1,24 @@
 <div class="body">
     <div class="login">
-        <p>Bienvenido( Login )</p>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Usuario</mat-label>
-            <input matInput autocomplete="off">
-        </mat-form-field>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Contraseña</mat-label>
-            <input matInput autocomplete="off">
-        </mat-form-field>
-        <br>
-        <button class="ancho" mat-raised-button color="primary">Primary</button>
+        <mat-progress-spinner
+            [mode]="mode"
+            diameter="50"
+            *ngIf="loading"
+            class="spinner">
+        </mat-progress-spinner>
+        <form [formGroup]="form" (ngSubmit)="ingresar()" *ngIf="!loading">
+            <p>Bienvenido( Login )</p>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="usuario">
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput autocomplete="off" formControlName="password">
+            </mat-form-field>
+            <br>
+            <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
+        </form>
     </div>
 </div>
 
