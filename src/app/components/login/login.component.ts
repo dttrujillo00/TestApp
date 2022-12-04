@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   form: FormGroup;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   mode: ProgressSpinnerMode = 'indeterminate';
   loading = false;
 
@@ -41,8 +39,8 @@ export class LoginComponent {
   openSnackBar() {
     this._snackBar.open('Usuario o contraseña ingresados son inválidos', '', {
       duration: 3000,
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
+      horizontalPosition: "center",
+      verticalPosition: "bottom",
     });
   }
 
