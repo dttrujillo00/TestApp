@@ -60,10 +60,10 @@ export class UsuariosComponent implements   AfterViewInit {
   }
 
   eliminarUsuario(index: number){
-    this._usuarioService.eliminarUsuario(index);
-    this.cargarUsuarios();
+    this.listUsuarios.splice(index, 1);
+    this.dataSource = new MatTableDataSource(this.listUsuarios);
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+      this.dataSource.sort = this.sort;
 
     this._snackBar.open('Usuario eliminado correctamente', '', {
       duration: 1500,
