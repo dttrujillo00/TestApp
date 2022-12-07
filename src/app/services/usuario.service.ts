@@ -3,22 +3,14 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/usuarios';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  listUsuarios: Usuario[] = [
-    {usuario: "jperez", nombre: 'Juan', apellido: "Perez", sexo: 'Masculino'},
-    {usuario: "dtamayo", nombre: 'Daniel', apellido: "Tamayo", sexo: 'Masculino'},
-    {usuario: "sdeoro", nombre: 'Susy', apellido: "de Oro", sexo: 'Femenino'},
-    {usuario: "bpineda", nombre: 'Barbara', apellido: "Pineda", sexo: 'Femenino'},
-    {usuario: "jperez", nombre: 'Juan', apellido: "Perez", sexo: 'Masculino'},
-    {usuario: "dtamayo", nombre: 'Daniel', apellido: "Tamayo", sexo: 'Masculino'},
-    {usuario: "sdeoro", nombre: 'Susy', apellido: "de Oro", sexo: 'Femenino'},
-    {usuario: "bpineda", nombre: 'Barbara', apellido: "Pineda", sexo: 'Femenino'}
-  ];
+  listUsuarios: User[] = [];
 
   url = "https://randomuser.me/api/";
 
@@ -28,15 +20,15 @@ export class UsuarioService {
     return this.http.get(`${this.url}?results=${count}`);
   }
 
-  getUsuarios(){
-    return this.listUsuarios.slice();
-  }
+  // getUsuarios(){
+  //   return this.listUsuarios.slice();
+  // }
 
   eliminarUsuario(index: number){
     this.listUsuarios.splice(index, 1)
   }
 
   agregarUsuario(user: Usuario){
-    this.listUsuarios.unshift(user);
+    // this.listUsuarios.unshift(user);
   }
 }
