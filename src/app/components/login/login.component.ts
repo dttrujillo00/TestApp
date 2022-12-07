@@ -28,9 +28,11 @@ export class LoginComponent {
 
     if (usuario === 'danielTamayo' && password === 'admin123') {
       // Redireccionar al dashboard
+      localStorage.setItem("logged", "true")
       this.simulLoading();
     } else {
       // Mostrar mensaje de error
+      localStorage.setItem("logged", "false")
       this.openSnackBar();
       this.form.reset();
     }

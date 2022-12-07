@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Menu } from 'src/app/interfaces/menu';
 import { MenuService } from 'src/app/services/menu.service';
 
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   menu: Menu[] = [];
 
-  constructor(private _menuService: MenuService){
+  constructor(private _menuService: MenuService, private router: Router){
 
   }
 
@@ -24,5 +25,10 @@ export class NavbarComponent implements OnInit {
       console.log(data);
       this.menu = data;
     })
+  }
+
+  logout(){
+    localStorage.setItem("logged", "false")
+    this.router.navigate(['login'])
   }
 }
