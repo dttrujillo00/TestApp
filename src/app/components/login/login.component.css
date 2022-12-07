@@ -23,3 +23,12 @@
 .spinner{
     margin: 0 auto;
 }
+
+.card{
+    background-color: #282c75;
+    color: white;
+}
+
+.card p{
+    margin: 1rem;
+}

@@ -2,8 +2,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/interfaces/usuarios';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -25,14 +25,14 @@ export class CrearUsuarioComponent {
 
   agregarUsuario(){
 
-    const user: Usuario = {
-      usuario: this.form.value.usuario,
-      nombre: this.form.value.nombre,
-      apellido: this.form.value.apellido,
-      sexo: this.form.value.sexo,
+    const user: User = {
+      name: {
+        first: this.form.value.nombre,
+        last: this.form.value.apellido
+      },
+      email: this.form.value.usuario,
+      gender: this.form.value.sexo,
     }
-
-    this.usuarioService.agregarUsuario(user);
     this.router.navigateByUrl('/dashboard/usuarios')
 
     this._snackBar.open('El usuario fue agregado con éxito', '', {

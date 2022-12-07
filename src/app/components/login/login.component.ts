@@ -26,7 +26,7 @@ export class LoginComponent {
     const usuario = this.form.value.usuario;
     const password = this.form.value.password;
 
-    if (usuario === 'jperez' && password === 'admin123') {
+    if (usuario === 'danielTamayo' && password === 'admin123') {
       // Redireccionar al dashboard
       this.simulLoading();
     } else {

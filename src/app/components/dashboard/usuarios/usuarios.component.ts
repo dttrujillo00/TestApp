@@ -4,8 +4,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/interfaces/user';
-
-import { Usuario } from 'src/app/interfaces/usuarios';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -63,7 +61,7 @@ export class UsuariosComponent implements   AfterViewInit {
     this.listUsuarios.splice(index, 1);
     this.dataSource = new MatTableDataSource(this.listUsuarios);
     this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort;
 
     this._snackBar.open('Usuario eliminado correctamente', '', {
       duration: 1500,
