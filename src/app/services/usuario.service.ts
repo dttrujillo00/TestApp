@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/usuarios';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,13 @@ export class UsuarioService {
     {usuario: "bpineda", nombre: 'Barbara', apellido: "Pineda", sexo: 'Femenino'}
   ];
 
-  constructor() { }
+  url = "https://randomuser.me/api/";
+
+  constructor(private http: HttpClient) { }
+
+  obtener(count: number): Observable<any> {
+    return this.http.get(`${this.url}?results=${count}`);
+  }
 
   getUsuarios(){
     return this.listUsuarios.slice();
@@ -25,5 +34,9 @@ export class UsuarioService {
 
   eliminarUsuario(index: number){
     this.listUsuarios.splice(index, 1)
+  }
+
+  agregarUsuario(user: Usuario){
+    this.listUsuarios.unshift(user);
   }
 }

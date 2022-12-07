@@ -1,10 +1,25 @@
 <mat-toolbar color="primary">
+    <button (click)="sidenav.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
     <span>AppUsers</span>
 
     <span class="example-spacer"></span>
-    <button mat-button color="white" *ngFor="let item of menu" [routerLink]="item.redirect">{{ item.nombre }}</button>
-    <span class="example-spacer"></span>
+
     <button [routerLink]="['/logout']" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>logout</mat-icon>
     </button>
 </mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list color="primary">
+      <a mat-list-item *ngFor="let item of menu" [routerLink]="item.redirect">{{ item.nombre }}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

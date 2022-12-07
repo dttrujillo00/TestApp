@@ -17,6 +17,7 @@ export class UsuariosComponent implements AfterViewInit, OnInit {
   listUsuarios: Usuario[] = [];
   displayedColumns: string[] = ['usuario', 'nombre', 'apellido', 'sexo', 'acciones'];
   dataSource!: MatTableDataSource<any>;
+  showFiller = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -30,6 +31,8 @@ export class UsuariosComponent implements AfterViewInit, OnInit {
     
   }
 
+ 
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -38,6 +41,11 @@ export class UsuariosComponent implements AfterViewInit, OnInit {
   cargarUsuarios(){
     this.listUsuarios = this._usuarioService.getUsuarios();
     this.dataSource = new MatTableDataSource(this.listUsuarios);
+    this._usuarioService
+    .obtener(20)
+    .subscribe((res) => {
+      console.log(res.results[0]);
+    });
   }
 
   applyFilter(event: Event) {

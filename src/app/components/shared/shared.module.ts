@@ -18,8 +18,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
-
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select'; 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -38,7 +40,11 @@ import { MatCardModule } from '@angular/material/card';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports: [
     MatFormFieldModule,
@@ -54,7 +60,11 @@ import { MatCardModule } from '@angular/material/card';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatListModule
   ]
 })
 export class SharedModule { }

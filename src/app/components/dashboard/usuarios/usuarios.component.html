@@ -3,14 +3,14 @@
         <span>Usuarios</span>
         <span class="example-spacer"></span>
         <button mat-raised-button color="primary" routerLink="/dashboard/crear-usuario">Agregar</button>
-    </mat-toolbar>
+    </mat-toolbar>    
 
     <div class="mat-elevation-z8" *ngIf="listUsuarios.length > 0">
         <mat-form-field>
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
         </mat-form-field>
-        <table mat-table [dataSource]="dataSource" matSort matSortDisableClear matSortActive="usuario" matSortDirection="asc">
+        <table mat-table [dataSource]="dataSource" matSort  matSortDirection="asc">
     
             <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->

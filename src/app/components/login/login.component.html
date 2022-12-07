@@ -6,19 +6,26 @@
             *ngIf="loading"
             class="spinner">
         </mat-progress-spinner>
-        <form [formGroup]="form" (ngSubmit)="ingresar()" *ngIf="!loading">
-            <p>Bienvenido( Login )</p>
-            <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Usuario</mat-label>
-                <input type="text" matInput autocomplete="off" formControlName="usuario">
-            </mat-form-field>
-            <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Contraseña</mat-label>
-                <input type="password" matInput autocomplete="off" formControlName="password">
-            </mat-form-field>
-            <br>
-            <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
-        </form>
+
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="ingresar()" *ngIf="!loading">
+                    <p>Bienvenido</p>
+                    <mat-form-field class="ancho" appearance="fill">
+                        <mat-label>Usuario</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuario">
+                    </mat-form-field>
+                    <mat-form-field class="ancho" appearance="fill">
+                        <mat-label>Contraseña</mat-label>
+                        <input type="password" matInput autocomplete="off" formControlName="password">
+                    </mat-form-field>
+                    <br>
+                    <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
+                </form>
+            </mat-card-content>
+          </mat-card>
+          
+
     </div>
 </div>
 
